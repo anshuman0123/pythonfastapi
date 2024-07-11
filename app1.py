@@ -14,6 +14,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-@app.get("/{name}")
-async def read_item(name: str):
+@app.get("/")
+async def read_item():
     return [FileResponse("disha1.jpeg"), FileResponse("disha2.jpeg")]
