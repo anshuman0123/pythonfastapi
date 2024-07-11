@@ -16,4 +16,4 @@ app.add_middleware(
 )
 @app.get("/")
 async def read_item():
-    return [FileResponse("disha1.jpeg"), FileResponse("disha2.jpeg")]
+    return [FileResponse("C:/Users/anshu/Desktop/pythonfastapi/disha1.jpeg"), FileResponse("C:/Users/anshu/Desktop/pythonfastapi/disha2.jpeg")]
