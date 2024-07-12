@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from typing import List
+from pydantic import BaseModel
 
 
 app = FastAPI()
@@ -14,6 +16,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+class imges(BaseModel):
+    path : str
 @app.get("/")
-async def read_item():
-    return [FileResponse(os.path.join(os.getcwd(),"disha1.jpeg")), FileResponse(os.path.join(os.getcwd(),"disha2.jpeg"))] #FileResponse("disha2.jpeg")]
+def home():
+    return [imges(path="/files/disha1.jpeg"),imges(path="/files/disha2.jpeg")]
+
+@app.get("/files/{filename}")
+def get_file(filename: str):
+    return FileResponse(filename)     
