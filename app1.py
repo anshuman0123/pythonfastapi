@@ -21,7 +21,7 @@ class imges(BaseModel):
     path : str
 @app.get("/")
 def home():
-    return [imges(path="/files/disha1.jpeg"),imges(path="/files/disha2.jpeg")]
+    return [imges(path="https://pythonfastapi.vercel.app/files/disha1.jpeg"),imges(path="https://pythonfastapi.vercel.app/files/disha2.jpeg")]
 
 @app.get("/files/{filename}")
 def get_file(filename: str):
